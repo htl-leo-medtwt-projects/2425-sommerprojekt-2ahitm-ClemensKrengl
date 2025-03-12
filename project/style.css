@@ -1,3 +1,41 @@
+:root {
+    --background-gradient: linear-gradient(90deg, rgba(255,248,121,1) 0%, rgba(255,147,250,1) 50%, rgba(246,179,255,1) 100%);
+}
+
+@font-face {
+    font-family: mainFont;
+    src: url();
+}
+
 html, body {
-    background: linear-gradient(90deg, rgba(255,248,121,1) 0%, rgba(255,147,250,1) 50%, rgba(246,179,255,1) 100%);
+    background: var(--background-gradient);
+}
+
+#logo {
+    width: 4%;
+}
+
+#topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25vw;
+    padding: 1vh;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    background: var(--background-gradient);
+    
+    /* Border gradient by Chat Skibidi */
+    border: solid 2px;
+    border-image: linear-gradient(to right, #b3d6ff, #66edb3);
+    border-image-slice: 1;
+}
+
+.topBarItem {
+    margin: 0;
+}
+
+.topBarItem:hover {
+    cursor: pointer;
 }
