@@ -1,0 +1,12 @@
+{
+    "songs": [
+        {
+            "id": 0,
+            "title": "Lighthouse (feat. PhiloSofie)",
+            "cover": "/songImage/lighthouse_JJD.jpg",
+            "artist": "JJD",
+            "releaseDate": 11032025,
+            "lyrics": "Bruh"
+        }
+    ]
+}

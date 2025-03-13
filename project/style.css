@@ -4,32 +4,29 @@
 
 @font-face {
     font-family: mainFont;
-    src: url();
+    src: url(font/Nunito/Nunito-VariableFont_wght.ttf);
 }
 
 html, body {
     background: var(--background-gradient);
+    font-family: mainFont;
 }
 
 #logo {
-    width: 4%;
+    width: 6%;
 }
 
 #topBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 25vw;
+    width: 50vw;
+    font-size: 1.5rem;
     padding: 1vh;
     margin: 0 auto;
     background-color: #f5f5f5;
     border-radius: 8px;
     background: var(--background-gradient);
-    
-    /* Border gradient by Chat Skibidi */
-    border: solid 2px;
-    border-image: linear-gradient(to right, #b3d6ff, #66edb3);
-    border-image-slice: 1;
 }
 
 .topBarItem {
@@ -38,4 +35,11 @@ html, body {
 
 .topBarItem:hover {
     cursor: pointer;
+}
+
+#newRelease {
+    position: absolute;
+    left: 150px;
+    top: 150px;
+    font-size: 3.5rem;
 }
