@@ -43,3 +43,13 @@ html, body {
     top: 150px;
     font-size: 3.5rem;
 }
+
+.songCoverImage {
+    /* pixel to make every image the same size */
+    width: 300px;
+    height: 300px;
+}
+
+.titleSong {
+    text-align: center;
+}

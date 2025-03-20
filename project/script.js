@@ -2,52 +2,56 @@ const songData = [
 {
             "id": 0,
             "title": "Lighthouse (feat. PhiloSofie)",
-            "cover": "/songImage/lighthouse_JJD.jpg",
-            "artist": "JJD",
-            "releaseDate": 13032025,
+            "cover": "data/songImages/lighthouse_JJD.jpg",
+            "artist": "JJD feat. PhiloSofie",
+            "releaseDate": "13-03-2025",
             "recent": true
         },
 	    {
             "id": 1,
             "title": "Live Your Live",
-            "cover": "liveYourLive_Tobu.jpg",
+            "cover": "data/songImages/liveYourLive_Tobu.jpg",
             "artist": "Tobu",
-            "releaseDate": 11032025,
+            "releaseDate": "11-03-2025",
             "recent": true
 	    },
         {
             "id": 2,
             "title": "Love Letter",
-            "cover": "liveYourLive_Tobu.jpg",
+            "cover": "data/songImages/liveYourLive_Tobu.jpg",
             "artist": "m3gatron",
-            "releaseDate": 11032025,
+            "releaseDate": "11-03-2025",
             "recent": true
 	    },
         {
             "id": 3,
             "title": "Live Your Live",
-            "cover": "liveYourLive_Tobu.jpg",
+            "cover": "data/songImages/liveYourLive_Tobu.jpg",
             "artist": "Tobu",
-            "releaseDate": 11032025,
+            "releaseDate": "11-03-2025",
             "recent": false
 	    }
 ]
 
-displaySongData(songData);
+displaySongData(songData, 3);
 
-function displaySongData(data) {
-    const newReleaseBoxes = document.getElementById('newReleaseBoxes');
-    newReleaseBoxes.innerHTML = '';
+function displaySongData(data, count) {
+    const songsBox = document.getElementById('newReleaseBoxes');
+    songsBox.innerHTML = '';
 
-    data.forEach(song => {
+    console.log(count);
+
+    for (let i = 0; i < count && i < data.length; i++) {
+        const song = data[i];
         const songElement = document.createElement('div');
-        songElement.classList.add('song');
+        songElement.classList.add(`song${song.id}`);
+        songElement.classList.add(`songBox`);
         songElement.innerHTML = `
-            <img src="${song.cover}" alt="${song.title} cover">
-            <h3>${song.title}</h3>
-            <p>Artist: ${song.artist}</p>
-            <p>Release Date: ${new Date(song.releaseDate).toLocaleDateString()}</p>
+            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage" ">
+            <h3 class="titleSong" id="titleSong${song.id}">${song.title}</h3>
+            <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
         `;
-        newReleaseBoxes.appendChild(songElement);
-    });
+        songsBox.appendChild(songElement);
+    }
 }
+
