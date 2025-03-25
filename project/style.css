@@ -1,5 +1,7 @@
 :root {
     --background-gradient: linear-gradient(90deg, rgba(255,248,121,1) 0%, rgba(255,147,250,1) 50%, rgba(246,179,255,1) 100%);
+    --newReleases-left: 60vw;
+    --newReleases-top: 15vh;
 }
 
 @font-face {
@@ -46,10 +48,39 @@ html, body {
 
 .songCoverImage {
     /* pixel to make every image the same size */
-    width: 300px;
-    height: 300px;
+    width: 275px;
+    height: 275px;
 }
 
-.titleSong {
-    text-align: center;
+.songBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 285px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 7px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
+}
+
+.songBox:hover {
+    transform: scale(1.05);
+}
+
+.song0 {
+    left: calc(var(--newReleases-left) - 30vh);
+    top: calc(var(--newReleases-top) + 10vh);
+}
+
+.song1 {
+    left: var(--newReleases-left);
+    top: var(--newReleases-top);
+}
+
+.song2 {
+    left: calc(var(--newReleases-left) + 30vh);
+    top: calc(var(--newReleases-top) + 5vh);
 }
