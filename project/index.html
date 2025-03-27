@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WaveSync</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="data/songData.js"></script>
+    <script src="data/artistData.js"></script>
 </head>
 <body>
 
@@ -13,19 +15,19 @@
         <img src="img/LogoWaveSync.png" alt="Logo" id="logo" class="topBarItem">
         <p class="topBarItem" id="searchBar">Search</p>
         <p class="topBarItem" id="genresBar">Genres</p>
-        <p class="topBarItem" id="likedSongsBar">Liked Songs</p>
+        <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
         <p class="topBarItem" id="quizBar">Quiz</p>
     </div>
 
     <!--- Generate Content based on .json --->
 
-    <h1 id="newRelease">New Releases</h1>
+    <h1 id="newRelease" class="mainTexts">New Releases</h1>
     <div id="newReleaseBoxes"></div>
 
-    <h1 id="popularArtists"></h1>
+    <h1 id="popularArtists" class="mainTexts">Popular Artists</h1>
     <div id="popularArtistsBoxes"></div>
 
-    <h1 id="popularSongs"></h1>
+    <h1 id="popularSongs" class="mainTexts"></h1>
     <div id="popularSongsBoxes"></div>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liked Songs</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topBar">
+        <a href="index.html"><img src="img/LogoWaveSync.png" alt="Logo" id="logo" class="topBarItem"></a>
+        <p class="topBarItem" id="searchBar">Search</p>
+        <p class="topBarItem" id="genresBar">Genres</p>
+        <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
+        <p class="topBarItem" id="quizBar">Quiz</p>
+    </div>
+
+    <!--- Generate Content based on .json --->
+
+    <h1 id="likedSongsh1">Liked Songs</h1>
+    <div id="likedSongsOutput"></div>
+    <button onclick="printLikedSongs(songData)">Generate tmp</button>
+</body>
+</html>

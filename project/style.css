@@ -41,8 +41,18 @@ html, body {
 
 #newRelease {
     position: absolute;
-    left: 150px;
-    top: 150px;
+    left: 5vw;
+    top: 15vh;
+    font-size: 3.5rem;
+}
+
+#popularArtists {
+    position: absolute;
+    right: 5vw;
+    bottom: 10vh;
+}
+
+.mainTexts {
     font-size: 3.5rem;
 }
 
@@ -83,4 +93,24 @@ html, body {
 .song2 {
     left: calc(var(--newReleases-left) + 30vh);
     top: calc(var(--newReleases-top) + 5vh);
+}
+
+#likedSongsBar {
+    text-decoration: none;
+    color: black;
+}
+
+#searchBar {
+    text-decoration: none;
+    color: black;
+}
+
+#genresBar {
+    text-decoration: none;
+    color: black;
+}
+
+#quizBar {
+    text-decoration: none;
+    color: black;
 }
