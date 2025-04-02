@@ -28,7 +28,8 @@ html, body {
     margin: 0 auto;
     background-color: #f5f5f5;
     border-radius: 8px;
-    background: var(--background-gradient);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
 }
 
 .topBarItem {
@@ -55,6 +56,8 @@ html, body {
 .mainTexts {
     font-size: 3.5rem;
 }
+
+/* Styling for song boxes: */
 
 .songCoverImage {
     /* pixel to make every image the same size */
@@ -113,4 +116,45 @@ html, body {
 #quizBar {
     text-decoration: none;
     color: black;
+}
+
+/* Styling for artist boxes: */
+
+.artistBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 285px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 7px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
+}
+
+.artistBox:hover {
+    transform: scale(1.05);
+}
+
+.artistCoverImage {
+    /* pixel to make every image the same size */
+    width: 275px;
+    height: 275px;
+}
+
+.artist0 {
+    left: calc(var(--newReleases-left) - 30vh);
+    top: calc(var(--newReleases-top) + 10vh);
+}
+
+.artist1 {
+    left: var(--newReleases-left);
+    top: var(--newReleases-top);
+}
+
+.artist2 {
+    left: calc(var(--newReleases-left) + 30vh);
+    top: calc(var(--newReleases-top) + 5vh);
 }
