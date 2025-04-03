@@ -10,6 +10,8 @@ function printPopularArtists() {
     displayArtistData(artistData, 3);
 }
 
+
+// Display songs with a count (how many to display)
 function displaySongData(data, count) {
     const songsBox = document.getElementById('newReleaseBoxes');
     songsBox.innerHTML = '';
@@ -30,6 +32,7 @@ function displaySongData(data, count) {
     }
 }
 
+// Display artists with a count (how many to display)
 function displayArtistData(data, count) {
     const songsBox = document.getElementById('popularArtistsBoxes');
     songsBox.innerHTML = '';
@@ -44,15 +47,13 @@ function displayArtistData(data, count) {
         artistElement.innerHTML = `
             <img src="${artist.cover}" alt="${artist.name} cover" class="artistCoverImage" ">
             <h3 class="artistName" id="artistName${artist.id}">${artist.name}</h3>
+            <p class="artistStyles" id="artistStyles${artist.id}">${artist.releases} Releases</p>
         `;
         songsBox.appendChild(artistElement);
     }
 }
 
-
-
-
-
+// Print liked songs:
 function printLikedSongs(data) {
     const songsBox = document.getElementById('likedSongsOutput');
     
@@ -71,3 +72,15 @@ function printLikedSongs(data) {
         }
     }
 }
+
+// Make a gradient around song and artist boxes via multiple.js:
+
+var multiple = new Multiple({
+    selector: '.artistBox',
+    background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
+});
+
+var multiple = new Multiple({
+    selector: '.songBox',
+    background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
+});

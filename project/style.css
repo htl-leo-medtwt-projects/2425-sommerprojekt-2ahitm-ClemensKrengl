@@ -2,6 +2,9 @@
     --background-gradient: linear-gradient(90deg, rgba(255,248,121,1) 0%, rgba(255,147,250,1) 50%, rgba(246,179,255,1) 100%);
     --newReleases-left: 60vw;
     --newReleases-top: 15vh;
+
+    --popularArtists-left: 30vw;
+    --popularArtist-top: -50vh;
 }
 
 @font-face {
@@ -12,6 +15,7 @@
 html, body {
     background: var(--background-gradient);
     font-family: mainFont;
+    overflow-x: hidden;
 }
 
 #logo {
@@ -19,11 +23,13 @@ html, body {
 }
 
 #topBar {
+    position: sticky;
+    top: 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 50vw;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     padding: 1vh;
     margin: 0 auto;
     background-color: #f5f5f5;
@@ -73,8 +79,7 @@ html, body {
     justify-content: center;
     width: 285px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
+    /*backdrop-filter: blur(10px);*/
     border-radius: 7px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
 }
@@ -128,8 +133,7 @@ html, body {
     justify-content: center;
     width: 285px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
+    /*backdrop-filter: blur(10px);*/
     border-radius: 7px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
 }
@@ -145,16 +149,16 @@ html, body {
 }
 
 .artist0 {
-    left: calc(var(--newReleases-left) - 30vh);
-    top: calc(var(--newReleases-top) + 10vh);
+    left: calc(var(--popularArtists-left) - 20vw);
+    bottom: calc(var(--popularArtist-top) + 20vh);
 }
 
 .artist1 {
-    left: var(--newReleases-left);
-    top: var(--newReleases-top);
+    left: var(--popularArtists-left);
+    bottom: var(--popularArtist-top);
 }
 
 .artist2 {
-    left: calc(var(--newReleases-left) + 30vh);
-    top: calc(var(--newReleases-top) + 5vh);
+    left: calc(var(--popularArtists-left) + 20vw);
+    bottom: calc(var(--popularArtist-top) - 20vh);
 }

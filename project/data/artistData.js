@@ -2,16 +2,19 @@ const artistData = [
     {
         "id":0,
         "name":"Tobu",
-        "cover":"data/artistImages/tobu.jpg"
+        "cover":"data/artistImages/tobu.jpg",
+        "releases":32
     },
     {
         "id":1,
-        "name":"Tobu",
-        "cover":"data/artistImages/tobu.jpg"
+        "name":"Tu",
+        "cover":"data/artistImages/tobu.jpg",
+        "releases":100
     },
     {
         "id":2,
-        "name":"Tobu",
-        "cover":"data/artistImages/tobu.jpg"
+        "name":"asf",
+        "cover":"data/artistImages/tobu.jpg",
+        "releases":3
     },
 ]
