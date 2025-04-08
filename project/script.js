@@ -25,7 +25,7 @@ function displaySongData(data, count) {
         const songElement = document.createElement('div');
         songElement.classList.add(`song${song.id}`, 'songBox');
         songElement.innerHTML = `
-            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage">
+            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage" onclick="playSong(${song.id})">
             <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
             <h3 class="titleSong" id="titleSong${song.id}">${song.title}</h3>
             <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
@@ -89,6 +89,13 @@ searchInput.addEventListener('keydown', function(event) {
     }
 });
 
+window.addEventListener('keydown', function(event) {
+    if (event.key === ' ' || event.key === 'Spacebar') {
+        event.preventDefault();
+        togglePlayPause();
+    }
+});
+
 function searchSong(song) {
     console.log("Searching for:", song);
 
@@ -105,6 +112,58 @@ function searchSong(song) {
     document.getElementById("newRelease").innerHTML = "Search Results";
 }
 
+// Playing a song by ChatGPT
+
+let currentAudio = null;
+let isPlaying = false;
+
+function playSong(id) {
+
+    document.getElementById("footer").style.opacity = 1;
+
+    const song = songData.find(s => s.id === id);
+    if (!song) return;
+
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+    }
+
+    currentAudio = new Audio(song.mp3);
+    currentAudio.play();
+    isPlaying = true;
+
+    console.log(`Playing: ${song.title}`);
+    document.getElementById("nowPlaying").innerHTML = `Now playing: ${song.title} by ${song.artist}`;
+    document.getElementById("pauseButton").style.display = "block";
+    updatePlayPauseButtons();
+
+    currentAudio.onended = () => {
+        isPlaying = false;
+        updatePlayPauseButtons();
+    };
+}
+
+// Play/Pause:
+
+function togglePlayPause() {
+    if (!currentAudio) return;
+
+    if (isPlaying) {
+        currentAudio.pause();
+        isPlaying = false;
+    } 
+    else {
+        currentAudio.play();
+        isPlaying = true;
+    }
+
+    updatePlayPauseButtons();
+}
+
+function updatePlayPauseButtons() {
+    document.getElementById('playButton').style.display = isPlaying ? 'none' : 'inline';
+    document.getElementById('pauseButton').style.display = isPlaying ? 'inline' : 'none';
+}
 
 // Make a gradient around song and artist boxes via multiple.js:
 
