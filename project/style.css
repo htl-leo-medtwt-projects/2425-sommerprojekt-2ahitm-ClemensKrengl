@@ -50,7 +50,7 @@ html, body {
     position: absolute;
     left: 5vw;
     top: 15vh;
-    font-size: 3.5rem;
+    font-size: 3.5vw;
 }
 
 #popularArtists {
@@ -60,7 +60,7 @@ html, body {
 }
 
 .mainTexts {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
 }
 
 /* Styling for song boxes: */
@@ -82,6 +82,8 @@ html, body {
     /*backdrop-filter: blur(10px);*/
     border-radius: 7px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
+    background: linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E);
+    cursor: pointer;
 }
 
 .songBox:hover {
@@ -101,6 +103,14 @@ html, body {
 .song2 {
     left: calc(var(--newReleases-left) + 30vh);
     top: calc(var(--newReleases-top) + 5vh);
+}
+
+.titleSong {
+    font-size: 0.9vw;
+}
+
+.artistSong {
+    font-size: 0.8vw;
 }
 
 #likedSongsBar {
@@ -135,11 +145,15 @@ html, body {
     height: 400px;
     /*backdrop-filter: blur(10px);*/
     border-radius: 7px;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background: linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E);
+    cursor: pointer;
 }
 
 .artistBox:hover {
     transform: scale(1.05);
+    /* Todo: make hover change background */ 
+    /*background-color: rgba(255, 255, 255, 0.25);*/
 }
 
 .artistCoverImage {
@@ -161,4 +175,43 @@ html, body {
 .artist2 {
     left: calc(var(--popularArtists-left) + 20vw);
     bottom: calc(var(--popularArtist-top) - 20vh);
+}
+
+.artistReleases {
+    font-size: 0.8vw;
+}
+
+.artistName {
+    font-size: 0.9vw;
+}
+
+.likeButton {
+    display: block;
+    width: 20%;
+    position: absolute;
+    margin-top: -30vh;
+    margin-left: 19vh;
+}
+
+/* Responsive Design: */
+@media (min-width: 2560px) {
+    .artistBox {
+        width: calc(285px * 1.5);
+        height: calc(400px * 1.5);
+        border-radius: calc(7px * 1.5);
+    }
+    .artistCoverImage {
+        width: calc(275px * 1.5);
+        height: calc(275px * 1.5);
+    }
+
+    .songBox {
+        width: calc(285px * 1.5);
+        height: calc(400px * 1.5);
+        border-radius: calc(7px * 1.5);
+    }
+    .songCoverImage {
+        width: calc(275px * 1.5);
+        height: calc(275px * 1.5);
+    }
 }

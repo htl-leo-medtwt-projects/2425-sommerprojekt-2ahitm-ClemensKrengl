@@ -1,3 +1,5 @@
+AOS.init();
+
 printRecentReleases();
 
 function printRecentReleases() {
@@ -24,7 +26,8 @@ function displaySongData(data, count) {
         songElement.classList.add(`song${song.id}`);
         songElement.classList.add(`songBox`);
         songElement.innerHTML = `
-            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage" ">
+            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage">
+            <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
             <h3 class="titleSong" id="titleSong${song.id}">${song.title}</h3>
             <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
         `;
@@ -47,7 +50,7 @@ function displayArtistData(data, count) {
         artistElement.innerHTML = `
             <img src="${artist.cover}" alt="${artist.name} cover" class="artistCoverImage" ">
             <h3 class="artistName" id="artistName${artist.id}">${artist.name}</h3>
-            <p class="artistStyles" id="artistStyles${artist.id}">${artist.releases} Releases</p>
+            <p class="artistReleases" id="artistReleases${artist.id}">${artist.releases} Releases</p>
         `;
         songsBox.appendChild(artistElement);
     }
@@ -71,6 +74,10 @@ function printLikedSongs(data) {
             songsBox.appendChild(songElement);
         }
     }
+}
+
+function likeSong(songID) {
+    console.log(songID);
 }
 
 // Make a gradient around song and artist boxes via multiple.js:
