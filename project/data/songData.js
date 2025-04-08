@@ -1,5 +1,5 @@
 const songData = [
-    {
+            {      
                 "id": 0,
                 "title": "Lighthouse (feat. PhiloSofie)",
                 "cover": "data/songImages/lighthouse_JJD.jpg",

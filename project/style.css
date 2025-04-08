@@ -79,10 +79,10 @@ html, body {
     justify-content: center;
     width: 285px;
     height: 400px;
-    /*backdrop-filter: blur(10px);*/
+    backdrop-filter: blur(10px);
     border-radius: 7px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
-    background: linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E);
+    background: rgba(255, 255, 255, 0.25);
     cursor: pointer;
 }
 
@@ -123,6 +123,26 @@ html, body {
     color: black;
 }
 
+#searchInput {
+    position: absolute;
+    left: 7.8vw;
+    top: 2.5vh;
+    border: 1px solid #ccc;
+    display: none;
+    background: white;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+  
+#searchBar:hover #searchInput {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+
 #genresBar {
     text-decoration: none;
     color: black;
@@ -143,10 +163,10 @@ html, body {
     justify-content: center;
     width: 285px;
     height: 400px;
-    /*backdrop-filter: blur(10px);*/
+    backdrop-filter: blur(10px);
     border-radius: 7px;
     transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    background: linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E);
+    background: rgba(255, 255, 255, 0.25);
     cursor: pointer;
 }
 

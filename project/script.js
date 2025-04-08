@@ -18,13 +18,12 @@ function displaySongData(data, count) {
     const songsBox = document.getElementById('newReleaseBoxes');
     songsBox.innerHTML = '';
 
-    console.log(count);
+    console.log(`Displaying ${count} result(s).`);
 
     for (let i = 0; i < count && i < data.length; i++) {
         const song = data[i];
         const songElement = document.createElement('div');
-        songElement.classList.add(`song${song.id}`);
-        songElement.classList.add(`songBox`);
+        songElement.classList.add(`song${song.id}`, 'songBox');
         songElement.innerHTML = `
             <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage">
             <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
@@ -80,8 +79,36 @@ function likeSong(songID) {
     console.log(songID);
 }
 
+// Search for a song:
+
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        searchSong(searchInput.value);
+    }
+});
+
+function searchSong(song) {
+    console.log("Searching for:", song);
+
+    const searchResults = [];
+
+    for (let i = 0; i < songData.length; i++) {
+        if (songData[i].title.toLowerCase().includes(song.toLowerCase())) {
+            console.log("Found Song.");
+            searchResults.push(songData[i]);
+        }
+    }
+
+    displaySongData(searchResults, 3);
+    document.getElementById("newRelease").innerHTML = "Search Results";
+}
+
+
 // Make a gradient around song and artist boxes via multiple.js:
 
+/*
 var multiple = new Multiple({
     selector: '.artistBox',
     background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
@@ -91,3 +118,4 @@ var multiple = new Multiple({
     selector: '.songBox',
     background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
 });
+*/
