@@ -1,5 +1,3 @@
-AOS.init();
-
 printRecentReleases();
 
 function printRecentReleases() {
@@ -20,18 +18,24 @@ function displaySongData(data, count) {
 
     console.log(`Displaying ${count} result(s).`);
 
+    let countTMP = 0;
+
     for (let i = 0; i < count && i < data.length; i++) {
         const song = data[i];
         const songElement = document.createElement('div');
-        songElement.classList.add(`song${song.id}`, 'songBox');
+        songElement.classList.add(`song${countTMP}`, 'songBox');
         songElement.innerHTML = `
-            <img src="${song.cover}" alt="${song.title} cover" class="songCoverImage" onclick="playSong(${song.id})">
+            <img src="${song.cover}" alt="${song.id} cover" class="songCoverImage" onclick="playSong(${song.id})">
             <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
             <h3 class="titleSong" id="titleSong${song.id}">${song.title}</h3>
             <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
         `;
         songsBox.appendChild(songElement);
+
+        countTMP++;
     }
+
+    countTMP = 0;
 }
 
 // Display artists with a count (how many to display)
@@ -114,21 +118,18 @@ function searchSong(song) {
 
 // Playing a song by ChatGPT
 
-let currentAudio = null;
+let currentAudio = document.getElementById("audioElm");
 let isPlaying = false;
 
 function playSong(id) {
-
     document.getElementById("footer").style.opacity = 1;
 
     const song = songData.find(s => s.id === id);
     if (!song) return;
 
-    if (currentAudio && !currentAudio.paused) {
-        currentAudio.pause();
-    }
-
-    currentAudio = new Audio(song.mp3);
+    currentAudio.pause(); // stop any currently playing
+    currentAudio.src = song.mp3;
+    currentAudio.load();
     currentAudio.play();
     isPlaying = true;
 
@@ -165,16 +166,52 @@ function updatePlayPauseButtons() {
     document.getElementById('pauseButton').style.display = isPlaying ? 'inline' : 'none';
 }
 
-// Make a gradient around song and artist boxes via multiple.js:
+// Make a gradient for top bar (not finetuned):
 
 /*
 var multiple = new Multiple({
-    selector: '.artistBox',
-    background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
+    selector: '.topBarItem',
+    background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)',
+    text: true
 });
+*/
 
-var multiple = new Multiple({
-    selector: '.songBox',
-    background: 'linear-gradient(90deg, #B3D6FF, #66EDB3, #C0FF6E)'
-});
+// Try for wave.js (sample from wave.js)
+
+let audioElement = document.querySelector("#audioElm");
+let canvasElement = document.querySelector("#canvasElm");
+let wave = new Wave(audioElement, canvasElement);
+
+// Simple example: add an animation
+wave.addAnimation(new wave.animations.Wave({
+    lineWidth: 10,
+    amplitude: 0.3,
+    lineColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]},
+    count: 50,
+    fillColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]}
+}));
+
+// Intermediate example: add an animation with options
+/*
+//wave.addAnimation(new wave.animations.Wave({
+    lineWidth: 10,
+    lineColor: "red",
+    count: 20
+}));
+*/
+
+// Expert example: add multiple animations with options
+/*
+wave.addAnimation(new wave.animations.Square({
+    count: 50,
+    diamater: 300
+}));
+*/
+
+/*
+wave.addAnimation(new wave.animations.Glob({
+    fillColor: {gradient: ["red","blue","green"], rotate: 45},
+    lineWidth: 10,
+    lineColor: "#fff"
+}));
 */

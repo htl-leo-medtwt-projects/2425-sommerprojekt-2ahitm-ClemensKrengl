@@ -59,6 +59,12 @@ html, body {
 
 .topBarItem {
     margin: 0;
+    /*
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    */
 }
 
 .topBarItem:hover {
@@ -235,6 +241,10 @@ html, body {
 .playPauseButtons {
     width: 5vw;
     z-index: 100;
+}
+
+#canvasElm {
+    height: 10vh;
 }
 
 /* Responsive Design: */
