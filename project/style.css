@@ -22,6 +22,10 @@ html, body {
     width: 6%;
 }
 
+#logoIMG {
+    width: 3vw;
+}
+
 #footer {
     position: fixed;
     opacity: 0;
@@ -71,7 +75,7 @@ html, body {
     cursor: pointer;
 }
 
-#newRelease {
+#newRelease, #likedSongsh1 {
     position: absolute;
     left: 5vw;
     top: 15vh;
@@ -239,8 +243,9 @@ html, body {
 }
 
 .playPauseButtons {
-    width: 5vw;
+    width: 4.5vw;
     z-index: 100;
+    margin-right: 1vw;
 }
 
 #canvasElm {

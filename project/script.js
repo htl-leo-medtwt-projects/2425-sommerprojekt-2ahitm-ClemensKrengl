@@ -1,3 +1,23 @@
+if (!localStorage.getItem('likedSongs')) {
+    localStorage.setItem('likedSongs', JSON.stringify([]));
+}
+
+function initApp() {
+    const path = window.location.pathname;
+
+    if (path.includes('likedSongs.html')) {
+        console.log('On Liked Songs Page');
+        displaySongData(songData, songData.length, "likedSongsOutput");
+    } 
+    else {
+        console.log('On main page or something else');
+        displaySongData(songData, 3, "newReleaseBoxes");
+        printPopularArtists();
+    }
+}
+
+initApp();
+
 printRecentReleases();
 
 function printRecentReleases() {
@@ -12,8 +32,8 @@ function printPopularArtists() {
 
 
 // Display songs with a count (how many to display)
-function displaySongData(data, count) {
-    const songsBox = document.getElementById('newReleaseBoxes');
+function displaySongData(data, count, idName) {
+    const songsBox = document.getElementById(idName);
     songsBox.innerHTML = '';
 
     console.log(`Displaying ${count} result(s).`);
@@ -81,6 +101,15 @@ function printLikedSongs(data) {
 
 function likeSong(songID) {
     console.log(songID);
+
+    let storedArray = JSON.parse(localStorage.getItem('likedSongs')) || [];
+
+    if (!storedArray.includes(songID)) {
+        storedArray.push(songID);
+        localStorage.setItem('likedSongs', JSON.stringify(storedArray));
+    } else {
+        console.log(`Song ${songID} already liked.`);
+    }
 }
 
 // Search for a song:
@@ -121,7 +150,7 @@ function searchSong(song) {
 let currentAudio = document.getElementById("audioElm");
 let isPlaying = false;
 
-function playSong(id) {
+async function playSong(id) {
     document.getElementById("footer").style.opacity = 1;
 
     const song = songData.find(s => s.id === id);
@@ -141,6 +170,11 @@ function playSong(id) {
     currentAudio.onended = () => {
         isPlaying = false;
         updatePlayPauseButtons();
+
+        setTimeout(() => {
+            document.getElementById("footer").style.opacity = 0;
+        }, 3000);
+          
     };
 }
 
@@ -176,7 +210,7 @@ var multiple = new Multiple({
 });
 */
 
-// Try for wave.js (sample from wave.js)
+// for wave.js
 
 let audioElement = document.querySelector("#audioElm");
 let canvasElement = document.querySelector("#canvasElm");
@@ -184,8 +218,7 @@ let wave = new Wave(audioElement, canvasElement);
 
 // Simple example: add an animation
 wave.addAnimation(new wave.animations.Wave({
-    lineWidth: 10,
-    amplitude: 0.3,
+    lineWidth: 8,
     lineColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]},
     count: 50,
     fillColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]}

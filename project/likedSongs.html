@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liked Songs</title>
     <script src="script.js" defer></script>
+    <script src="data/songData.js"></script>
+    <script src="data/artistData.js"></script>
+    <link href="data/libraries/multiple.css" rel="stylesheet">
+    <script src="data/libraries/multiple.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="topBar">
-        <a href="index.html" id="logo"><img src="img/LogoWaveSync.png" alt="Logo" id="logo" class="topBarItem"></a>
+        <a href="index.html" id="logo"><img src="img/LogoWaveSync.png" alt="Logo" id="logoIMG" class="topBarItem"></a>
         <p class="topBarItem" id="searchBar">Search</p>
         <p class="topBarItem" id="genresBar">Genres</p>
         <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
@@ -18,8 +23,18 @@
 
     <!--- Generate Content based on .json --->
 
-    <h1 id="likedSongsh1">Liked Songs</h1>
+    <h1 id="likedSongsh1" class="mainTexts">Liked Songs</h1>
     <div id="likedSongsOutput"></div>
-    <button onclick="printLikedSongs(songData)">Generate tmp</button>
+    
+
+    <div id="footer">
+        <p id="nowPlaying"></p>
+        <img src="img/pauseButton.png" alt="pause" id="pauseButton" class="playPauseButtons" onclick="togglePlayPause()">
+        <img src="img/playButton.png" alt="play" id="playButton" class="playPauseButtons" onclick="togglePlayPause()">
+        <canvas id="canvasElm">Canvas</canvas>
+    </div>
+
+    <!--- Audio elements for visualizer --->
+    <audio id="audioElm" style="display: none;"></audio>
 </body>
 </html>
