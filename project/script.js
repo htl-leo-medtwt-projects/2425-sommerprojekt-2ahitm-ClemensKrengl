@@ -2,27 +2,22 @@ if (!localStorage.getItem('likedSongs')) {
     localStorage.setItem('likedSongs', JSON.stringify([]));
 }
 
+// code by chatGPT to detect sites
 function initApp() {
     const path = window.location.pathname;
 
     if (path.includes('likedSongs.html')) {
         console.log('On Liked Songs Page');
-        displaySongData(songData, songData.length, "likedSongsOutput");
+        displayLikedSongs(songData, songData.length, "likedSongsOutput");
     } 
-    else {
-        console.log('On main page or something else');
+    else if (path.includes('index.html')) {
+        console.log('On main page');
         displaySongData(songData, 3, "newReleaseBoxes");
         printPopularArtists();
     }
 }
 
 initApp();
-
-printRecentReleases();
-
-function printRecentReleases() {
-    displaySongData(songData, 3);
-}
 
 printPopularArtists();
 
@@ -34,6 +29,8 @@ function printPopularArtists() {
 // Display songs with a count (how many to display)
 function displaySongData(data, count, idName) {
     const songsBox = document.getElementById(idName);
+    console.log("ID name: " + idName);
+    console.log("Count: " + count);
     songsBox.innerHTML = '';
 
     console.log(`Displaying ${count} result(s).`);
@@ -44,6 +41,34 @@ function displaySongData(data, count, idName) {
         const song = data[i];
         const songElement = document.createElement('div');
         songElement.classList.add(`song${countTMP}`, 'songBox');
+        songElement.innerHTML = `
+            <img src="${song.cover}" alt="${song.id} cover" class="songCoverImage" onclick="playSong(${song.id})">
+            <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
+            <h3 class="titleSong" id="titleSong${song.id}">${song.title}</h3>
+            <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
+        `;
+        songsBox.appendChild(songElement);
+
+        countTMP++;
+    }
+
+    countTMP = 0;
+}
+
+// Display songs with a count (how many to display)
+function displayLikedSongs(data, count, idName) {
+    const songsBox = document.getElementById(idName);
+    console.log("AAAAAAAAAAAAHHHHHHHHHHHH")
+    songsBox.innerHTML = '';
+
+    console.log(`Displaying ${count} result(s).`);
+
+    let countTMP = 0;
+
+    for (let i = 0; i < count && i < data.length; i++) {
+        const song = data[i];
+        const songElement = document.createElement('div');
+        songElement.classList.add(`likedSong${countTMP}`, 'songBoxLiked');
         songElement.innerHTML = `
             <img src="${song.cover}" alt="${song.id} cover" class="songCoverImage" onclick="playSong(${song.id})">
             <img src="img/like.png" alt="likeButton" class="likeButton" onclick="likeSong(${song.id})">
@@ -141,7 +166,7 @@ function searchSong(song) {
         }
     }
 
-    displaySongData(searchResults, 3);
+    displaySongData(searchResults, 3, "newRelease");
     document.getElementById("newRelease").innerHTML = "Search Results";
 }
 

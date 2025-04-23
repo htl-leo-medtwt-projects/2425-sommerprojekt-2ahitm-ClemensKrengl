@@ -100,7 +100,7 @@ html, body {
     height: 275px;
 }
 
-.songBox {
+.songBox, .songBoxLiked {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -115,7 +115,7 @@ html, body {
     cursor: pointer;
 }
 
-.songBox:hover {
+.songBox:hover, .songBoxLiked:hover {
     transform: scale(1.05);
 }
 
