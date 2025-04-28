@@ -100,8 +100,22 @@ html, body {
     height: 275px;
 }
 
-.songBox, .songBoxLiked {
+.songBox {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 285px;
+    height: 400px;
+    backdrop-filter: blur(10px);
+    border-radius: 7px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s transform;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+}
+
+.songBoxLiked {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -234,6 +248,13 @@ html, body {
     font-size: 0.9vw;
 }
 
+.artistInformation {
+    position: absolute;
+    display: none;
+    width: 275px;
+    height: 275px;
+}
+
 .likeButton {
     display: block;
     width: 20%;
@@ -252,24 +273,23 @@ html, body {
     height: 10vh;
 }
 
+#likedSongsOutput {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 1.5vw;
+    left: 30vw;
+    top: 18vh;
+}
+
 /* Responsive Design: */
 @media (min-width: 2560px) {
-    .artistBox {
+    .artistBox, .songBox {
         width: calc(285px * 1.5);
         height: calc(400px * 1.5);
         border-radius: calc(7px * 1.5);
     }
-    .artistCoverImage {
-        width: calc(275px * 1.5);
-        height: calc(275px * 1.5);
-    }
-
-    .songBox {
-        width: calc(285px * 1.5);
-        height: calc(400px * 1.5);
-        border-radius: calc(7px * 1.5);
-    }
-    .songCoverImage {
+    .artistCoverImage, .songCoverImage, .artistInformation {
         width: calc(275px * 1.5);
         height: calc(275px * 1.5);
     }
