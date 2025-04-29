@@ -171,14 +171,21 @@ function searchSong(song) {
         }
     }
 
-    displaySongData(searchResults, 1, "newRelease");
-    document.getElementById("newRelease").innerHTML = "Search Results";
+    if (document.getElementById("newReleaseBoxes") == null || document.getElementById("newReleaseBoxes") == "") {
+        displaySongData(searchResults, 3, "songBoxLiked");
+        document.getElementById("likedSongsh1").innerHTML = "Search Results";
+    }
+    else {
+        displaySongData(searchResults, 3, "newReleaseBoxes");
+        document.getElementById("newRelease").innerHTML = "Search Results";
+    }
 }
 
 // Playing a song by ChatGPT
 
 let currentAudio = document.getElementById("audioElm");
 let isPlaying = false;
+let elapsedInterval = null;
 
 async function playSong(id) {
     document.getElementById("footer").style.opacity = 1;
@@ -186,11 +193,21 @@ async function playSong(id) {
     const song = songData.find(s => s.id === id);
     if (!song) return;
 
+    clearInterval(elapsedInterval);
+
     currentAudio.pause(); // stop any currently playing
     currentAudio.src = song.mp3;
     currentAudio.load();
     currentAudio.play();
     isPlaying = true;
+
+    // display elapsed time:
+    elapsedInterval = setInterval(() => {
+        const elapsed = currentAudio.currentTime;
+        const min = Math.floor(elapsed / 60);
+        const sec = Math.floor(elapsed % 60).toString().padStart(2, '0');
+        document.getElementById("durationDisplay").textContent = `${min}:${sec}`;
+    }, 1000);
 
     console.log(`Playing: ${song.title}`);
     document.getElementById("nowPlaying").innerHTML = `Now playing: ${song.title} by ${song.artist}`;
@@ -203,6 +220,7 @@ async function playSong(id) {
 
         setTimeout(() => {
             document.getElementById("footer").style.opacity = 0;
+            document.getElementById("canvasElm").style.opacity = 0;
         }, 3000);
           
     };

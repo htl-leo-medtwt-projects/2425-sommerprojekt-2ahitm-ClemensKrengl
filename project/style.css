@@ -264,13 +264,18 @@ html, body {
 }
 
 .playPauseButtons {
-    width: 4.5vw;
+    width: 4vw;
     z-index: 100;
     margin-right: 1vw;
 }
 
 #canvasElm {
     height: 10vh;
+    position: absolute;
+    right: 0vh;
+    bottom: 0vh;
+    position: fixed;
+    bottom: 0px;
 }
 
 #likedSongsOutput {
@@ -280,6 +285,11 @@ html, body {
     gap: 1.5vw;
     left: 30vw;
     top: 18vh;
+}
+
+#nowPlaying {
+    font-size: 1.5rem;
+    width: 30vw;
 }
 
 /* Responsive Design: */

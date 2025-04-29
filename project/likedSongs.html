@@ -15,7 +15,9 @@
 <body>
     <div id="topBar">
         <a href="index.html" id="logo"><img src="img/LogoWaveSync.png" alt="Logo" id="logoIMG" class="topBarItem"></a>
-        <p class="topBarItem" id="searchBar">Search</p>
+        <p class="topBarItem" id="searchBar">Search
+            <input type="text" id="searchInput" placeholder="Search..." />
+        </p>
         <p class="topBarItem" id="genresBar">Genres</p>
         <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
         <p class="topBarItem" id="quizBar">Quiz</p>
@@ -28,12 +30,13 @@
     
     <div id="footer">
         <p id="nowPlaying"></p>
+        <p id="durationDisplay"></p>
         <img src="img/pauseButton.png" alt="pause" id="pauseButton" class="playPauseButtons" onclick="togglePlayPause()">
         <img src="img/playButton.png" alt="play" id="playButton" class="playPauseButtons" onclick="togglePlayPause()">
-        <canvas id="canvasElm">Canvas</canvas>
     </div>
 
     <!--- Audio elements for visualizer --->
     <audio id="audioElm" style="display: none;"></audio>
+    <canvas id="canvasElm">Canvas</canvas>
 </body>
 </html>
