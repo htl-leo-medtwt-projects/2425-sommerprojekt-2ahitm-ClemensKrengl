@@ -7,7 +7,6 @@ const songData = [
                 "releaseDate": "13-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/lighthouse.mp3",
-                "liked":false,
                 "genres":["future bass", "dramatic", "energetic", "powerful"]
             },
             {
@@ -18,7 +17,6 @@ const songData = [
                 "releaseDate": "11-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/liveYourLife.mp3",
-                "liked":true,
                 "genres":["futurepop", "energetic", "exciting", "positive"]
             },
             {
@@ -29,7 +27,6 @@ const songData = [
                 "releaseDate": "11-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/loveLetter.mp3",
-                "liked":true,
                 "genres":["electronic pop", "energetic", "exciting", "positive"]
             },
             {
@@ -40,7 +37,6 @@ const songData = [
                 "releaseDate": "01-03-2025",
                 "recent": false,
                 "mp3":"data/songFiles/mortalsFunkRemix.mp3",
-                "liked":false,
                 "genres":["brazilian phonk", "powerful", "angry", "neutral"]
             }
     ]

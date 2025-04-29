@@ -23,7 +23,6 @@ function printPopularArtists() {
     displayArtistData(artistData, 3);
 }
 
-
 // Display songs with a count (how many to display)
 function displaySongData(data, count, idName) {
     const songsBox = document.getElementById(idName);
@@ -56,15 +55,20 @@ function displaySongData(data, count, idName) {
 // Display songs with a count (how many to display)
 function displayLikedSongs(data, count) {
     const songsBox = document.getElementById("likedSongsOutput");
-    console.log(songsBox)
     songsBox.innerHTML = '';
 
-    console.log(`Displaying ${count} result(s).`);
+    console.log(`Displaying up to ${count} liked song(s).`);
+
+    // Get likedSongs from localStorage and parse it into an array
+    const likedSongs = JSON.parse(localStorage.getItem("likedSongs")) || [];
+
+    // Filter only the liked songs based on ID
+    const likedData = data.filter(song => likedSongs.includes(song.id));
 
     let countTMP = 0;
 
-    for (let i = 0; i < count && i < data.length; i++) {
-        const song = data[i];
+    for (let i = 0; i < likedData.length && countTMP < count; i++) {
+        const song = likedData[i];
         const songElement = document.createElement('div');
         songElement.classList.add(`likedSong${countTMP}`, 'songBoxLiked');
         songElement.innerHTML = `
@@ -77,9 +81,8 @@ function displayLikedSongs(data, count) {
 
         countTMP++;
     }
-
-    countTMP = 0;
 }
+
 
 // Display artists with a count (how many to display)
 function displayArtistData(data, count) {
@@ -94,7 +97,7 @@ function displayArtistData(data, count) {
         artistElement.classList.add(`artist${artist.id}`);
         artistElement.classList.add(`artistBox`);
         artistElement.innerHTML = `
-            <img src="${artist.cover}" alt="${artist.name} cover" class="artistCoverImage" onclick="displayArtistInfo(${artist.id})">
+            <img src="${artist.cover}" alt="${artist.name} cover" class="artistCoverImage" id="artistCoverImage${artist.id}" onclick="displayArtistInfo(${artist.id})">
             <p class="artistInformation" id="artistInformation${artist.id}">${artist.information}</p>
             <h3 class="artistName" id="artistName${artist.id}">${artist.name}</h3>
             <p class="artistReleases" id="artistReleases${artist.id}">${artist.releases} Releases</p>
@@ -138,8 +141,9 @@ function likeSong(songID) {
 
 function displayArtistInfo(artistID) {
     console.log(artistID);
-
-    document.getElementById(`artistInformation${artistID}`).style.display = "block";
+    document.getElementById(`artistInformation${artistID}`).style.visibility = "visible";
+    document.getElementById(`artistInformation${artistID}`).style.opacity = 1;
+    document.getElementById(`artistCoverImage${artistID}`).style.filter = "blur(10px)";
 }
 
 // Search for a song:

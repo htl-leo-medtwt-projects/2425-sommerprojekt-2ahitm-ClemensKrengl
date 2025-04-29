@@ -223,6 +223,8 @@ html, body {
     /* pixel to make every image the same size */
     width: 275px;
     height: 275px;
+    filter: blur(0px);
+    transition: filter 0.4s ease;
 }
 
 .artist0 {
@@ -250,9 +252,13 @@ html, body {
 
 .artistInformation {
     position: absolute;
-    display: none;
+    visibility: hidden;
     width: 275px;
     height: 275px;
+    font-size: 1.5rem;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 0.4s ease;
 }
 
 .likeButton {
