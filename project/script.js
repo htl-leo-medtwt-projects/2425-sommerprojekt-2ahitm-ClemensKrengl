@@ -143,7 +143,7 @@ function displayArtistInfo(artistID) {
     console.log(artistID);
     document.getElementById(`artistInformation${artistID}`).style.visibility = "visible";
     document.getElementById(`artistInformation${artistID}`).style.opacity = 1;
-    document.getElementById(`artistCoverImage${artistID}`).style.filter = "blur(10px)";
+    document.getElementById(`artistCoverImage${artistID}`).style.filter = "blur(50px)";
 }
 
 // Search for a song:

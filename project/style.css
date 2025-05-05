@@ -275,6 +275,8 @@ html, body {
 }
 
 .artistInformation {
+    margin-top: 0%;
+    top: 3vh;
     position: absolute;
     visibility: hidden;
     width: 275px;

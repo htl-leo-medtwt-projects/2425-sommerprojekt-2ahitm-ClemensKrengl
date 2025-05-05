@@ -3,21 +3,21 @@ const artistData = [
         "id":0,
         "name":"Tobu",
         "cover":"data/artistImages/tobu.jpg",
-        "releases":32,
-        "information": "Tobu is an NCS artist."
+        "releases":136,
+        "information": "Tobu is a Latvian music producer known for melodic electronic tracks. He joined NCS with 'Hope' in 2013, becoming one of their iconic artists."
     },
     {
         "id":1,
-        "name":"Tu",
-        "cover":"data/artistImages/tobu.jpg",
-        "releases":100,
-        "information": "Tu is an NCS artist."
+        "name":"NEFFEX",
+        "cover":"data/artistImages/neffex.jpg",
+        "releases":260,
+        "information": "NEFFEX is a music project by Bryce Savage that mixes electronic, rock, and rap. They released their first NCS track, 'Desperate', in 2023."
     },
     {
         "id":2,
-        "name":"asf",
-        "cover":"data/artistImages/tobu.jpg",
-        "releases":3,
-        "information": "asf is an NCS artist."
+        "name":"Alan Walker",
+        "cover":"data/artistImages/alanWalker.jpg",
+        "releases":60,
+        "information": "Alan Walker is a British-Norwegian producer who gained fame with his track 'Fade' on NCS. The song’s success helped launch his mainstream career."
     },
 ]
