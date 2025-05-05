@@ -19,7 +19,16 @@
         <p class="topBarItem" id="searchBar">Search
             <input type="text" id="searchInput" placeholder="Search..." />
         </p>
-        <p class="topBarItem" id="genresBar">Genres</p>
+
+        <div id="genresContainer" class="topBarItem">
+            <p id="genresBar">Genres</p>
+            <div id="genresDropdown">
+                <a href="#" onclick="searchGenre('energetic')">Energetic</a>
+                <a href="#" onclick="searchGenre('future-bass')">FutureBass</a>
+                <a href="#" onclick="searchGenre('dramatic')">Dramatic</a>
+                <a href="#" onclick="searchGenre('test')">Test</a>
+            </div>
+        </div>
         <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
         <p class="topBarItem" id="quizBar">Quiz</p>
     </div>

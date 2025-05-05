@@ -169,7 +169,7 @@ html, body {
 #searchInput {
     position: absolute;
     left: 7.8vw;
-    top: 2.5vh;
+    top: 4.5vh;
     border: 1px solid #ccc;
     display: none;
     background: white;
@@ -184,11 +184,35 @@ html, body {
     opacity: 1;
     pointer-events: auto;
 }
-  
 
 #genresBar {
     text-decoration: none;
     color: black;
+}
+
+#genresContainer {
+    position: relative;
+    display: inline-block;
+}
+
+#genresDropdown {
+    display: none;
+    position: absolute;
+    min-width: 10vw;
+    z-index: 10;
+    left: -12vw;
+}
+
+#genresDropdown a {
+    display: block;
+    font-size: 1.5vw;
+    margin-left: 1.5vw;
+    color: black;
+    text-decoration: none;
+}
+
+#genresContainer:hover #genresDropdown {
+    display: flex;
 }
 
 #quizBar {
@@ -255,7 +279,7 @@ html, body {
     visibility: hidden;
     width: 275px;
     height: 275px;
-    font-size: 1.5rem;
+    font-size: 1.25vw;
     opacity: 0;
     text-align: center;
     transition: opacity 0.4s ease;
@@ -294,7 +318,7 @@ html, body {
 }
 
 #nowPlaying {
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     width: 30vw;
 }
 

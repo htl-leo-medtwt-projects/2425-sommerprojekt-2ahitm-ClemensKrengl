@@ -185,6 +185,20 @@ function searchSong(song) {
     }
 }
 
+function searchGenre(genre) {
+    console.log("Searching for: ", genre);
+ 
+    const searchResults = [];
+
+    for (let i = 0; i < songData.length; i++) {
+        if (songData[i].genres.includes(genre)) {
+            searchResults.push(songData[i]);
+        }
+    }
+    displaySongData(searchResults, 3, "newReleaseBoxes");
+    document.getElementById("newRelease").innerHTML = "Search Results";
+}
+
 // Playing a song by ChatGPT
 
 let currentAudio = document.getElementById("audioElm");
@@ -273,7 +287,8 @@ wave.addAnimation(new wave.animations.Wave({
     lineWidth: 8,
     lineColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]},
     count: 50,
-    fillColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]}
+    fillColor: {gradient: ["#B3D6FF", "#66EDB3", "#C0FF6E"]},
+    
 }));
 
 // Intermediate example: add an animation with options
