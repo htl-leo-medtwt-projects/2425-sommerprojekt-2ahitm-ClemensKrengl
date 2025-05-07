@@ -15,12 +15,11 @@
 <body>
     <div id="topBar">
         <a href="index.html" id="logo"><img src="img/LogoWaveSync.png" alt="Logo" id="logoIMG" class="topBarItem"></a>
-        <p class="topBarItem" id="searchBar">Search
-            <input type="text" id="searchInput" placeholder="Search..." />
+        <p class="topBarItem" id="searchBar" onclick="switchToMain()">Search
         </p>
-        <p class="topBarItem" id="genresBar">Genres</p>
+        <p class="topBarItem" id="genresBar" onclick="switchToMain()">Genres</p>
         <a class="topBarItem" id="likedSongsBar" href="likedSongs.html">Liked Songs</a>
-        <p class="topBarItem" id="quizBar">Quiz</p>
+        <a class="topBarItem" id="quizBar" href="quiz.html">Quiz</a>
     </div>
 
     <!--- Generate Content based on .json --->

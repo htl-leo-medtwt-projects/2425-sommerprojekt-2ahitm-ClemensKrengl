@@ -291,6 +291,10 @@ wave.addAnimation(new wave.animations.Wave({
     
 }));
 
+function switchToMain() {
+    window.location.href = "index.html";
+}
+
 // Intermediate example: add an animation with options
 /*
 //wave.addAnimation(new wave.animations.Wave({
