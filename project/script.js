@@ -174,15 +174,9 @@ function searchSong(song) {
             searchResults.push(songData[i]);
         }
     }
-
-    if (document.getElementById("newReleaseBoxes") == null || document.getElementById("newReleaseBoxes") == "") {
-        displaySongData(searchResults, 3, "songBoxLiked");
-        document.getElementById("likedSongsh1").innerHTML = "Search Results";
-    }
-    else {
-        displaySongData(searchResults, 3, "newReleaseBoxes");
-        document.getElementById("newRelease").innerHTML = "Search Results";
-    }
+    
+    displaySongData(searchResults, 3, "newReleaseBoxes");
+    document.getElementById("newRelease").innerHTML = "Search Results";
 }
 
 function searchGenre(genre) {

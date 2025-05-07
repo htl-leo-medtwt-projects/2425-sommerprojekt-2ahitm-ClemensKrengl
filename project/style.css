@@ -215,12 +215,24 @@ input:focus {
     min-width: 10vw;
     z-index: 100;
     left: -12vw;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    gap: 1.5vw;
+    padding: 3%;
+    border-radius: 15px;
 }
 
 #genresDropdown a {
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+}
+
+#genresDropdown a #genresDropdown{
     display: block;
+    opacity: 1;
     font-size: 1.5vw;
-    margin-left: 1.5vw;
     color: black;
     text-decoration: none;
 }

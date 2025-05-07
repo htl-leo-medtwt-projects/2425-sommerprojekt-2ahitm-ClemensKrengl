@@ -20,4 +20,39 @@ const artistData = [
         "releases":60,
         "information": "Alan Walker is a British-Norwegian producer who gained fame with his track 'Fade' on NCS. The song’s success helped launch his mainstream career."
     },
+    {
+        "id":3,
+        "name":"LXNGVX",
+        "cover":"data/artistImages/lxngvx.jpg",
+        "releases":10,
+        "information":"LXNGVX is cool."
+    },
+    {
+        "id":4,
+        "name":"PhiloSofie",
+        "cover":"data/artistImages/placeholder.png",
+        "releases":9053,
+        "information":"PhiloSofie is cool."
+    },
+    {
+        "id":5,
+        "name":"JJD",
+        "cover":"data/artistImages/placeholder.png",
+        "releases":90,
+        "information":"JJD is cool."
+    },
+    {
+        "id":6,
+        "name":"Warriyo",
+        "cover":"data/artistImages/warriyo.jpg",
+        "releases":53,
+        "information":"Warriyo is cool."
+    },
+    {
+        "id":7,
+        "name":"m3gatron",
+        "cover":"data/artistImages/m3gatron.jpg",
+        "releases":12,
+        "information":"M3gatron is cool."
+    }
 ]

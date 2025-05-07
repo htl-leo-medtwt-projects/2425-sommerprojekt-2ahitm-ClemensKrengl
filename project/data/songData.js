@@ -7,7 +7,8 @@ const songData = [
                 "releaseDate": "13-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/lighthouse.mp3",
-                "genres":["future-bass", "dramatic", "energetic", "powerful"]
+                "genres":["future-bass", "dramatic", "energetic", "powerful"],
+                "artistIDArray":[4,5]
             },
             {
                 "id": 1,
@@ -17,7 +18,8 @@ const songData = [
                 "releaseDate": "11-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/liveYourLife.mp3",
-                "genres":["future-pop", "energetic", "exciting", "positive"]
+                "genres":["future-pop", "energetic", "exciting", "positive"],
+                "artistIDArray":[0]
             },
             {
                 "id": 2,
@@ -27,7 +29,8 @@ const songData = [
                 "releaseDate": "11-03-2025",
                 "recent": true,
                 "mp3":"data/songFiles/loveLetter.mp3",
-                "genres":["electronic-pop", "energetic", "exciting", "positive"]
+                "genres":["electronic-pop", "energetic", "exciting", "positive"],
+                "artistIDArray":[7]
             },
             {
                 "id": 3,
@@ -37,6 +40,7 @@ const songData = [
                 "releaseDate": "01-03-2025",
                 "recent": false,
                 "mp3":"data/songFiles/mortalsFunkRemix.mp3",
-                "genres":["brazilian-phonk", "powerful", "angry", "neutral"]
+                "genres":["brazilian-phonk", "powerful", "angry", "neutral"],
+                "artistIDArray":[3,6]
             }
     ]
