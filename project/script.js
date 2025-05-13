@@ -86,6 +86,9 @@ function displayLikedSongs(data, count) {
 
 // Display artists with a count (how many to display)
 function displayArtistData(data, count) {
+
+    let countID = 0;
+
     const songsBox = document.getElementById('popularArtistsBoxes');
     songsBox.innerHTML = '';
 
@@ -94,7 +97,7 @@ function displayArtistData(data, count) {
     for (let i = 0; i < count && i < data.length; i++) {
         const artist = data[i];
         const artistElement = document.createElement('div');
-        artistElement.classList.add(`artist${artist.id}`);
+        artistElement.classList.add(`artist${countID}`);
         artistElement.classList.add(`artistBox`);
         artistElement.innerHTML = `
             <img src="${artist.cover}" alt="${artist.name} cover" class="artistCoverImage" id="artistCoverImage${artist.id}" onclick="displayArtistInfo(${artist.id})">
@@ -103,6 +106,8 @@ function displayArtistData(data, count) {
             <p class="artistReleases" id="artistReleases${artist.id}">${artist.releases} Releases</p>
         `;
         songsBox.appendChild(artistElement);
+
+        countID++;
     }
 }
 
@@ -175,8 +180,19 @@ function searchSong(song) {
         }
     }
     
+    const artistResults = [];
+
+    for (let i = 0; i < searchResults.length; i++) {
+        for (let j = 0; j < searchResults[i].artistIDArray.length; j++) {
+            artistResults.push(artistData[i]);
+        }
+    }
+
     displaySongData(searchResults, 3, "newReleaseBoxes");
     document.getElementById("newRelease").innerHTML = "Search Results";
+
+    displayArtistData(artistResults, 3);
+    document.getElementById("popularArtists").innerHTML = "Artists:"
 }
 
 function searchGenre(genre) {
