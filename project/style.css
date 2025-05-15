@@ -354,6 +354,23 @@ input:focus {
     width: 30vw;
 }
 
+.quizButtons {
+    font-size: 1.5svw;
+    cursor: pointer;
+    position: absolute;
+    left: 40vw;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 0.5%;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), blur 0.5s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.quizButtons:hover {
+    transform: scale(1.1);
+    backdrop-filter: blur(10px);
+}
+
 /* Responsive Design: */
 @media (min-width: 2560px) {
     .artistBox, .songBox, .songBoxLiked {
