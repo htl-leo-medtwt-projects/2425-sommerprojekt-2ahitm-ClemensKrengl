@@ -331,7 +331,7 @@ input:focus {
     margin-right: 1vw;
 }
 
-#canvasElm {
+.visualizer {
     height: 10vh;
     position: absolute;
     right: 0vh;

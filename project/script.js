@@ -254,6 +254,31 @@ async function playSong(id) {
     };
 }
 
+async function playRandomSong() {
+    let max = songData.length;
+    let randomNumber = Math.floor(Math.random() * max);
+
+    let currentAudio = document.getElementById("audioElm");
+    let isPlaying = false;
+
+    const song = songData.find(s => s.id === randomNumber);
+    if (!song) return;
+
+    console.log(currentAudio)
+
+    currentAudio.pause(); // stop any currently playing
+    currentAudio.src = song.mp3;
+    currentAudio.load();
+    currentAudio.play();
+    isPlaying = true;
+
+    setTimeout(() => {
+        console.log("2 seconds");
+        currentAudio.pause();
+        isPlaying = false;
+    }, 2000);
+}
+
 // Play/Pause:
 
 function togglePlayPause() {
