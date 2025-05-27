@@ -2,6 +2,9 @@ if (!localStorage.getItem('likedSongs')) {
     localStorage.setItem('likedSongs', JSON.stringify([]));
 }
 
+let randomIndex = -1;
+let points = 0;
+
 // code by chatGPT to detect sites
 function initApp() {
     const path = window.location.pathname;
@@ -259,29 +262,77 @@ async function playSong(id) {
     };
 }
 
+// displayRandomSongData and getRandomSongs mostly by ChatGPT
+function displayRandomSongData(songs, idName) {
+    const songsBox = document.getElementById(idName);
+    songsBox.innerHTML = '';
+
+    songs.forEach((song, index) => {
+        const songElement = document.createElement('div');
+        songElement.classList.add(`randomSong${index}`, 'randomSongBox');
+        songElement.innerHTML = `
+            <img src="${song.cover}" alt="${song.id} cover" class="songCoverImage" onclick="selectSong(${index})">
+            <h3 class="titleSong" id="titleSong${index}">${song.title}</h3>
+            <p class="artistSong" id="artistSong${song.id}">Artist: ${song.artist}</p>
+        `;
+        songsBox.appendChild(songElement);
+    });
+}
+
+function getRandomSongs(data, count) {
+    const shuffled = [...data].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+
 async function playRandomSong() {
-    let max = songData.length;
-    let randomNumber = Math.floor(Math.random() * max);
 
-    let currentAudio = document.getElementById("audioElm");
-    let isPlaying = false;
+    document.getElementById("startQuizButton").style.display = "none"; 
 
-    const song = songData.find(s => s.id === randomNumber);
-    if (!song) return;
+    const selectedSongs = getRandomSongs(songData, 3);
+    displayRandomSongData(selectedSongs, "songSelectionBox");
 
-    console.log(currentAudio)
+    randomIndex = Math.floor(Math.random() * selectedSongs.length);
+    console.log(randomIndex + " is randomIndex")
+    const songToPlay = selectedSongs[randomIndex];
 
-    currentAudio.pause(); // stop any currently playing
-    currentAudio.src = song.mp3;
+    const currentAudio = document.getElementById("audioElm");
+    if (!currentAudio || !songToPlay) return;
+
+    currentAudio.pause();
+    currentAudio.src = songToPlay.mp3;
     currentAudio.load();
     currentAudio.play();
-    isPlaying = true;
 
     setTimeout(() => {
-        console.log("2 seconds");
         currentAudio.pause();
-        isPlaying = false;
-    }, 2000);
+        console.log("5 seconds");
+
+        setTimeout(() => {
+            console.log("3 seconds");
+            playRandomSong();
+        }, 3000);
+
+    }, 5000);
+}
+
+function selectSong(id) {
+    if (id == randomIndex) {
+        console.log("correct");
+        console.log("id: " + id);
+        console.log("correctID: " + randomIndex);
+
+        points++;
+        console.log(points + " points");
+
+        document.getElementById("quizMessage").innerHTML = "Correct! " + points + " Points";
+    }
+    else {
+        console.log("false");
+        console.log("id: " + id);
+        console.log("correctID: " + randomIndex);
+
+        document.getElementById("quizMessage").innerHTML = "Wrong! The correct song was " + document.getElementById(`titleSong${randomIndex}`).innerHTML + ".";
+    }
 }
 
 // Play/Pause:
