@@ -25,34 +25,34 @@ const artistData = [
         "name":"LXNGVX",
         "cover":"data/artistImages/lxngvx.jpg",
         "releases":10,
-        "information":"LXNGVX is cool."
+        "information":"LXNGVX is a Brazilian producer known for phonk remixes with gritty textures and raw energy. Their NCS debut brought new edge to classic tracks."
     },
     {
         "id":4,
         "name":"PhiloSofie",
-        "cover":"data/artistImages/placeholder.png",
+        "cover":"data/artistImages/philoSophie.webp",
         "releases":9053,
-        "information":"PhiloSofie is cool."
+        "information":"PhiloSofie is a vocalist known for emotional performances and electronic collaborations. Her voice adds depth to many powerful NCS releases."
     },
     {
         "id":5,
         "name":"JJD",
-        "cover":"data/artistImages/placeholder.png",
+        "cover":"data/artistImages/JJD.webp",
         "releases":90,
-        "information":"JJD is cool."
+        "information":"JJD creates high-energy future bass and melodic tracks. His work on NCS, like 'Lighthouse', is known for uplifting vibes and catchy drops."
     },
     {
         "id":6,
         "name":"Warriyo",
         "cover":"data/artistImages/warriyo.jpg",
         "releases":53,
-        "information":"Warriyo is cool."
+        "information":"Warriyo blends cinematic and electronic styles, creating tracks that are both intense and atmospheric. He's best known for 'Mortals' on NCS."
     },
     {
         "id":7,
         "name":"m3gatron",
         "cover":"data/artistImages/m3gatron.jpg",
         "releases":12,
-        "information":"M3gatron is cool."
+        "information":"m3gatron is an emerging electronic-pop producer known for crisp beats and emotional melodies. 'Love Letter' marked their NCS introduction."
     }
 ]

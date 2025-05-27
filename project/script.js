@@ -179,12 +179,16 @@ function searchSong(song) {
             searchResults.push(songData[i]);
         }
     }
-    
+
     const artistResults = [];
 
     for (let i = 0; i < searchResults.length; i++) {
-        for (let j = 0; j < searchResults[i].artistIDArray.length; j++) {
-            artistResults.push(artistData[i]);
+        const artistIDs = searchResults[i].artistIDArray;
+        for (let j = 0; j < artistIDs.length; j++) {
+            const artist = artistData.find(a => a.id === artistIDs[j]);
+            if (artist && !artistResults.includes(artist)) {
+                artistResults.push(artist);
+            }
         }
     }
 
@@ -192,8 +196,9 @@ function searchSong(song) {
     document.getElementById("newRelease").innerHTML = "Search Results";
 
     displayArtistData(artistResults, 3);
-    document.getElementById("popularArtists").innerHTML = "Artists:"
+    document.getElementById("popularArtists").innerHTML = "Artists:";
 }
+
 
 function searchGenre(genre) {
     console.log("Searching for: ", genre);
