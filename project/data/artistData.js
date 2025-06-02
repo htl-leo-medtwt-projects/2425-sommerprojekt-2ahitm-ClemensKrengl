@@ -54,5 +54,12 @@ const artistData = [
         "cover":"data/artistImages/m3gatron.jpg",
         "releases":12,
         "information":"m3gatron is an emerging electronic-pop producer known for crisp beats and emotional melodies. 'Love Letter' marked their NCS introduction."
+    },
+    {
+        "id":8,
+        "name":"Lil Sigma",
+        "cover":"data/artistImages/placeholder.jpg",
+        "releases":1,
+        "information":"Lil Sigma is an independent sigma artist rizzler."
     }
 ]

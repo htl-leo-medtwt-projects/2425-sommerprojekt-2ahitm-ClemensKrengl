@@ -42,5 +42,16 @@ const songData = [
                 "mp3":"data/songFiles/mortalsFunkRemix.mp3",
                 "genres":["brazilian-phonk", "powerful", "angry", "neutral"],
                 "artistIDArray":[3,6]
+            },
+            {
+                "id": 4,
+                "title": "Skibidi Rap",
+                "cover": "data/songImages/skibidiRap.jpg",
+                "artist": "Lil Sigma",
+                "releaseDate": "02-06-2025",
+                "recent": false,
+                "mp3":"data/songFiles/skibidiRap.mp3",
+                "genres":["rap", "german-rap", "angry"],
+                "artistIDArray":[8]
             }
     ]
